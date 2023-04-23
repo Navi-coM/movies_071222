@@ -12,7 +12,7 @@ class Home extends React.Component {
     }
 
     componentDidMount() {
-        let url = `http://www.omdbapi.com/?apikey=${API_KEY}&s=Matrix`;
+        let url = `https://www.omdbapi.com/?apikey=${API_KEY}&s=Matrix`;
         // https://imdb-api.com/API/AdvancedSearch/{API_KEY}?title={TITLE_FOR_SEARCH}&count=250
         fetch(url)
             .then(response => response.json())
@@ -20,7 +20,7 @@ class Home extends React.Component {
     }
 
     searchMovies = (stringSearch, type = 'all') => {
-        let url = `http://www.omdbapi.com/?apikey=${API_KEY}&s=${stringSearch}${type !== 'all' ? `&type=${type}` : ``}`;
+        let url = `https://www.omdbapi.com/?apikey=${API_KEY}&s=${stringSearch}${type !== 'all' ? `&type=${type}` : ``}`;
         fetch(url)
             .then(response => response.json())
             .then(data => this.setState({movieList: data.Search, loading: false}))
